@@ -151,7 +151,7 @@ var getIncludePaths = function getIncludePaths(uri) {
       paths = [];
 
   arr.forEach(function(includePath) {
-    paths = paths.concat(gfn(path.join(process.cwd(), includePath, uri)));
+    paths = paths.concat(gfn(path.join(includePath, uri)));
   });
 
   return paths;
