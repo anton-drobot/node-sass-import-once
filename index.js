@@ -151,7 +151,7 @@ var getIncludePaths = function getIncludePaths(uri) {
       paths = [];
 
   arr.forEach(function(includePath) {
-    paths = paths.concat(gfn(path.resolve(process.cwd(), includePath, uri)));
+    paths = paths.concat(gfn(path.join(process.cwd(), includePath, uri)));
   });
 
   return paths;
@@ -305,7 +305,7 @@ var importer = function importer(uri, prev, done) {
   }
 
   if (isRealFile) {
-    file = path.join(path.dirname(prev), makeFsPath(uri));
+    file = path.resolve(path.dirname(prev), makeFsPath(uri));
     raf(uri, file, function (err, data) {
       if (err) {
         console.log(err.toString());
